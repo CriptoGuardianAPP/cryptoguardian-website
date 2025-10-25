@@ -848,13 +848,16 @@
             // animateCounter(document.getElementById('saved24h'), 2847392);
             
             // Para conectar com backend:
-            // fetch('https://api.cryptoguardian.com/stats')
-            //     .then(res => res.json())
-            //     .then(data => {
-            //         animateCounter(document.getElementById('totalProtected'), data.totalProtected);
-            //         animateCounter(document.getElementById('honeypots'), data.honeypotsToday);
-            //         animateCounter(document.getElementById('saved24h'), data.saved24h);
-            //     });
+            fetch("https://cryptoguardian-backend-dhho.onrender.com/api/stats/live")
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        animateCounter(document.getElementById('totalProtected'), data.allTime.totalSaved);
+                        animateCounter(document.getElementById('honeypots'), data.last24h.honeypotsBlocked);
+                        animateCounter(document.getElementById('saved24h'), data.last24h.totalSaved);
+                    }
+                })
+                .catch(err => console.log('Stats unavailable'));
         });
     </script>
 
