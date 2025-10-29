@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CryptoGuardian - Proteção completa contra honeypots, drainers e golpes crypto. Mais de $847M protegidos.">
+    <meta name="description" content="CryptoGuardian - Proteção completa contra honeypots, drainers e golpes crypto.">
     <title>CryptoGuardian - Proteção Completa Contra Golpes Crypto</title>
     <style>
         * {
@@ -46,7 +46,6 @@
             max-width: 100vw;
         }
 
-        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -121,7 +120,6 @@
             transform: scale(1.05);
         }
 
-        /* Hero Section */
         .hero {
             padding: 8rem 2rem 4rem;
             text-align: center;
@@ -193,7 +191,6 @@
             font-size: 0.95rem;
         }
 
-        /* Stats Grid */
         .stats-container {
             max-width: 1200px;
             margin: 4rem auto;
@@ -233,7 +230,253 @@
             color: var(--text-secondary);
         }
 
-        /* How It Works */
+        .pricing-section {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .pricing-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li.included {
+            color: var(--text-primary);
+        }
+
+        .pricing-features li.included::before {
+            content: "✓ ";
+            color: var(--accent-green);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .pricing-features li.excluded::before {
+            content: "✗ ";
+            color: var(--accent-red);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .pricing-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5);
+        }
+
+        .pricing-button.secondary {
+            background: var(--bg-primary);
+            border: 2px solid var(--border);
+        }
+
+        .lifetime-counter {
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-yellow);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .lifetime-counter strong {
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+        }
+
+        .resources-comparison {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison-table {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-row:hover {
+            background: var(--bg-primary);
+        }
+
+        .resource-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .resource-check {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .check-yes {
+            color: var(--accent-green);
+        }
+
+        .check-no {
+            color: var(--accent-red);
+        }
+
+        .pain-section {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .pain-stats {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .pain-stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .pain-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .pain-content h3 {
+            font-size: 1.5rem;
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .pain-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
         .how-it-works {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -287,217 +530,6 @@
             line-height: 1.6;
         }
 
-        /* Pain Section */
-        .pain-section {
-            padding: 4rem 2rem;
-            background: var(--bg-secondary);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-        }
-
-        .pain-stats {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            gap: 2rem;
-        }
-
-        .pain-stat {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .pain-icon {
-            font-size: 3rem;
-            flex-shrink: 0;
-        }
-
-        .pain-content h3 {
-            font-size: 1.5rem;
-            color: var(--accent-red);
-            margin-bottom: 0.5rem;
-        }
-
-        .pain-content p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Resources Section */
-        .resources-section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .resource-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px var(--shadow);
-        }
-
-        .resource-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .resource-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .resource-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Comparison Section */
-        .comparison-section {
-            padding: 4rem 2rem;
-            background: var(--bg-secondary);
-        }
-
-        .comparison-table {
-            max-width: 1000px;
-            margin: 3rem auto 0;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-        }
-
-        .comparison-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 1rem;
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .comparison-row:last-child {
-            border-bottom: none;
-        }
-
-        .comparison-row.header {
-            background: var(--bg-primary);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .risk-high {
-            color: var(--accent-red);
-            font-weight: 600;
-        }
-
-        .risk-low {
-            color: var(--accent-green);
-            font-weight: 600;
-        }
-
-        .comparison-source {
-            text-align: center;
-            padding-top: 2rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .comparison-source a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        .comparison-source a:hover {
-            opacity: 0.7;
-        }
-
-        /* Final CTA */
-        .final-cta {
-            padding: 6rem 2rem;
-            text-align: center;
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-        }
-
-        .final-cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .final-cta-content h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-        }
-
-        .final-cta-stat {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .final-cta-stat strong {
-            color: var(--accent-red);
-        }
-
-        .final-cta-detail {
-            display: block;
-            margin-top: 1rem;
-            font-size: 1rem;
-            color: var(--text-primary);
-        }
-
-        .final-cta-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 3rem;
-            color: var(--text-secondary);
-        }
-
-        .final-cta-source {
-            margin-top: 3rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .final-cta-source a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        /* Footer */
         .footer {
             padding: 3rem 2rem 2rem;
             background: var(--bg-secondary);
@@ -527,7 +559,6 @@
             color: var(--text-secondary);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .header {
                 padding: 1rem;
@@ -561,36 +592,38 @@
                 grid-template-columns: 1fr;
             }
 
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-header,
             .comparison-row {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .comparison-row.header {
+            .comparison-header {
                 display: none;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
     <header class="header">
         <div class="logo">
             <div class="logo-icon">🛡️</div>
             <span>CryptoGuardian</span>
         </div>
         <nav class="header-nav">
+            <a href="#pricing">Pricing</a>
             <a href="#protecao">Proteção</a>
-            <a href="#comparison">Sem Guardian</a>
-            <a href="#comparison">Com Guardian</a>
+            <a href="#comparison">Comparação</a>
         </nav>
         <button class="theme-toggle" onclick="toggleTheme()">
             <span id="theme-icon">🌙</span>
         </button>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1 class="hero-title">
             43.8% dos Roubos Crypto em 2024<br>
@@ -604,41 +637,253 @@
             Hackers mudaram o alvo: agora <strong>você</strong> é o objetivo principal, não apenas exchanges.
         </p>
         
-        <button class="cta-button pulse" onclick="alert('Download será disponibilizado em breve!')">
-            VERIFICAR MINHA PROTEÇÃO AGORA
+        <button class="cta-button pulse" onclick="window.location.href='#pricing'">
+            VER PLANOS E PROTEÇÃO
         </button>
         
         <div class="hero-features">
-            <div class="hero-feature">✓ Grátis para sempre</div>
+            <div class="hero-feature">✓ Versão FREE completa</div>
             <div class="hero-feature">✓ Instalação em 30 segundos</div>
             <div class="hero-feature">✓ 100% Open Source</div>
         </div>
     </section>
 
-    <!-- Stats Grid -->
     <div class="stats-container">
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number" id="totalProtected">$847,392,847</div>
+                <div class="stat-number" id="totalProtected">$0</div>
                 <div class="stat-label">Total Protegido</div>
                 <div class="stat-label" style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">Desde o lançamento</div>
             </div>
             
             <div class="stat-card">
-                <div class="stat-number" id="honeypots">2,847</div>
+                <div class="stat-number" id="honeypots">0</div>
                 <div class="stat-label">Honeypots Bloqueados Hoje</div>
-                <div class="stat-label" style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">127,394 total</div>
+                <div class="stat-label" style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;" id="totalHoneypots">0 total</div>
             </div>
             
             <div class="stat-card">
-                <div class="stat-number" id="saved24h">$2,847,392</div>
+                <div class="stat-number" id="saved24h">$0</div>
                 <div class="stat-label">Salvos nas Últimas 24h</div>
-                <div class="stat-label" style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">Atualizando agora</div>
+                <div class="stat-label" style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">Atualizando em tempo real</div>
             </div>
         </div>
     </div>
 
-    <!-- Pain Section -->
+    <section class="pricing-section" id="pricing">
+        <h2 class="section-title">Escolha Seu Nível de Proteção</h2>
+        <p class="section-subtitle">Proteção para todos - do iniciante ao trader profissional</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="pricing-title">FREE</h3>
+                <div class="pricing-price">$0</div>
+                <div class="pricing-period">Para sempre</div>
+                
+                <ul class="pricing-features">
+                    <li class="included">4 recursos de proteção essenciais</li>
+                    <li class="included">Aprovações Maliciosas (básico)</li>
+                    <li class="included">Honeypot Tokens (APIs públicas)</li>
+                    <li class="included">Social Engineering (alertas)</li>
+                    <li class="included">Fake Tokens (verificação básica)</li>
+                    <li class="included">Análises ilimitadas</li>
+                    <li class="included">Trial PRO 7 dias grátis</li>
+                    <li class="excluded">14 recursos avançados</li>
+                    <li class="excluded">Machine Learning proprietário</li>
+                    <li class="excluded">Suporte prioritário</li>
+                </ul>
+                
+                <button class="pricing-button secondary" onclick="alert('Instale a extensão para começar!')">
+                    COMEÇAR GRÁTIS
+                </button>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="pricing-badge">LANÇAMENTO</div>
+                <h3 class="pricing-title">LIFETIME</h3>
+                <div class="pricing-price">$200</div>
+                <div class="pricing-period">Pagamento único</div>
+                
+                <div class="lifetime-counter">
+                    ⚡ Apenas <strong id="lifetimeCount">500</strong> licenças disponíveis<br>
+                    🔥 Oferta exclusiva de lançamento
+                </div>
+                
+                <ul class="pricing-features">
+                    <li class="included">TODOS os 18 recursos (+ futuros)</li>
+                    <li class="included">Machine Learning proprietário</li>
+                    <li class="included">Database 100K+ ameaças</li>
+                    <li class="included">Análises ilimitadas</li>
+                    <li class="included">Velocidade 5x mais rápida</li>
+                    <li class="included">Suporte prioritário 48h</li>
+                    <li class="included">3 dispositivos simultâneos</li>
+                    <li class="included">Atualizações vitalícias</li>
+                    <li class="included">Garantia 30 dias</li>
+                    <li style="color: var(--accent-yellow); font-weight: 600;">💎 Economia de $180/ano vs PRO</li>
+                </ul>
+                
+                <button class="pricing-button" onclick="alert('Checkout em breve!')">
+                    GARANTIR MINHA LICENÇA
+                </button>
+            </div>
+
+            <div class="pricing-card">
+                <h3 class="pricing-title">PRO</h3>
+                <div class="pricing-price">$15</div>
+                <div class="pricing-period">/mês ou $144/ano</div>
+                
+                <ul class="pricing-features">
+                    <li class="included">TODOS os 18 recursos</li>
+                    <li class="included">Machine Learning proprietário</li>
+                    <li class="included">Database 100K+ ameaças</li>
+                    <li class="included">Análises ilimitadas</li>
+                    <li class="included">Velocidade 5x mais rápida</li>
+                    <li class="included">Suporte prioritário 48h</li>
+                    <li class="included">1 dispositivo</li>
+                    <li class="included">Trial 7 dias grátis</li>
+                    <li class="included">Cancele quando quiser</li>
+                </ul>
+                
+                <button class="pricing-button secondary" onclick="alert('Assinatura PRO em breve!')">
+                    INICIAR TRIAL GRÁTIS
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="resources-comparison" id="comparison">
+        <h2 class="section-title">Comparação Completa de Recursos</h2>
+        <p class="section-subtitle">Veja exatamente o que está incluído em cada plano</p>
+        
+        <div class="comparison-table">
+            <div class="comparison-header">
+                <div>Recurso de Proteção</div>
+                <div>FREE</div>
+                <div>PRO/LIFETIME</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name"><strong>INCLUÍDOS NO FREE (4 recursos):</strong></div>
+                <div></div>
+                <div></div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">1. Aprovações Maliciosas (básico)</div>
+                <div class="resource-check check-yes">✓</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">2. Honeypot Tokens (APIs públicas)</div>
+                <div class="resource-check check-yes">✓</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">3. Social Engineering (alertas educativos)</div>
+                <div class="resource-check check-yes">✓</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">4. Fake Tokens (verificação básica)</div>
+                <div class="resource-check check-yes">✓</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name"><strong>EXCLUSIVOS PRO/LIFETIME (14 recursos):</strong></div>
+                <div></div>
+                <div></div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">5. Machine Learning Proprietário</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">6. Database 100K+ Ameaças</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">7. Análise Profunda de Contratos</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">8. Drainer Protection Avançada</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">9. Clipboard Hijacking Protection</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">10. Phishing Detection Avançado</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">11. Rug Pull Analysis</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">12. MEV/Flash Loan Detection</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">13. DNS/MITM Protection</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">14. Seed Phrase Protection</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">15. WalletConnect Security</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">16. Whitelist/Blacklist Personalizada</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">17. Modo Rígido (Bloqueio Automático)</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+            
+            <div class="comparison-row">
+                <div class="resource-name">18. Suporte Prioritário (48h)</div>
+                <div class="resource-check check-no">✗</div>
+                <div class="resource-check check-yes">✓</div>
+            </div>
+        </div>
+    </section>
+
     <section class="pain-section" id="protecao">
         <h2 class="section-title">2025 É Oficialmente o Pior Ano Para Segurança Crypto</h2>
         <p class="section-subtitle">Os números não mentem - e você pode ser o próximo</p>
@@ -670,7 +915,6 @@
         </div>
     </section>
 
-    <!-- How It Works -->
     <section class="how-it-works">
         <h2 class="section-title">Como o Guardian Protege Você</h2>
         <p class="section-subtitle">Análise instantânea antes de cada transação</p>
@@ -686,7 +930,7 @@
             
             <div class="step-card">
                 <div class="step-number">2</div>
-                <h3 class="step-title">Análise em 7 Camadas</h3>
+                <h3 class="step-title">Análise em Múltiplas Camadas</h3>
                 <p class="step-description">
                     Verifica contrato, liquidez, holders, histórico, aprovações, phishing e clipboard hijacking simultaneamente.
                 </p>
@@ -710,144 +954,6 @@
         </div>
     </section>
 
-    <!-- Resources Section -->
-    <section class="resources-section">
-        <h2 class="section-title">Proteção Completa em 7 Camadas</h2>
-        <p class="section-subtitle">CryptoGuardian analisa cada transação antes que aconteça</p>
-        
-        <div class="resources-grid">
-            <div class="resource-card">
-                <div class="resource-icon">🍯</div>
-                <h3 class="resource-title">Honeypot Detection</h3>
-                <p class="resource-description">
-                    Detecta tokens que você não consegue vender. Analisa contratos antes da compra.
-                </p>
-            </div>
-
-            <div class="resource-card">
-                <div class="resource-icon">💀</div>
-                <h3 class="resource-title">Drainer Protection</h3>
-                <p class="resource-description">
-                    Bloqueia sites maliciosos que tentam drenar sua carteira. Proteção em tempo real.
-                </p>
-            </div>
-
-            <div class="resource-card">
-                <div class="resource-icon">📋</div>
-                <h3 class="resource-title">Clipboard Hijacking</h3>
-                <p class="resource-description">
-                    Protege endereços copiados. Impede que malwares troquem endereços de destino.
-                </p>
-            </div>
-
-            <div class="resource-card">
-                <div class="resource-icon">🎣</div>
-                <h3 class="resource-title">Phishing Detection</h3>
-                <p class="resource-description">
-                    Identifica sites falsos de exchanges e carteiras. Base de dados atualizada diariamente.
-                </p>
-            </div>
-
-            <div class="resource-card">
-                <div class="resource-icon">🔐</div>
-                <h3 class="resource-title">Approve Protection</h3>
-                <p class="resource-description">
-                    Alerta sobre aprovações ilimitadas perigosas. Revoga permissões suspeitas automaticamente.
-                </p>
-            </div>
-
-            <div class="resource-card">
-                <div class="resource-icon">🎭</div>
-                <h3 class="resource-title">Rug Pull Analysis</h3>
-                <p class="resource-description">
-                    Analisa liquidez, holders e contratos. Detecta projetos criados para roubar.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison Section -->
-    <section class="comparison-section" id="comparison">
-        <h2 class="section-title">Com Guardian vs Sem Guardian</h2>
-        <p class="section-subtitle">A diferença entre proteger seu patrimônio ou perder tudo</p>
-        
-        <div class="comparison-table">
-            <div class="comparison-row header">
-                <div>Proteção</div>
-                <div>Sem Guardian</div>
-                <div>Com Guardian</div>
-            </div>
-            
-            <div class="comparison-row">
-                <div><strong>Risco de Comprometimento</strong></div>
-                <div class="risk-high">43.8% (média mercado)</div>
-                <div class="risk-low">&lt;2% (usuários Guardian)</div>
-            </div>
-            
-            <div class="comparison-row">
-                <div><strong>Perda Média Anual</strong></div>
-                <div class="risk-high">$12.400</div>
-                <div class="risk-low">$0 (proteção ativa)</div>
-            </div>
-            
-            <div class="comparison-row">
-                <div><strong>Detecção de Honeypots</strong></div>
-                <div class="risk-high">❌ Manual</div>
-                <div class="risk-low">✅ Automática</div>
-            </div>
-            
-            <div class="comparison-row">
-                <div><strong>Análise Antes da Transação</strong></div>
-                <div class="risk-high">❌ Não</div>
-                <div class="risk-low">✅ Sim (7 camadas)</div>
-            </div>
-
-            <div class="comparison-row">
-                <div><strong>Proteção Clipboard</strong></div>
-                <div class="risk-high">❌ Não</div>
-                <div class="risk-low">✅ Tempo real</div>
-            </div>
-
-            <div class="comparison-row">
-                <div><strong>Bloqueio de Phishing</strong></div>
-                <div class="risk-high">❌ Não</div>
-                <div class="risk-low">✅ Base atualizada</div>
-            </div>
-        </div>
-
-        <div class="comparison-source">
-            <p>*Dados baseados em: <a href="https://www.chainalysis.com/blog/2025-crypto-crime-report-introduction/" target="_blank">Chainalysis 2025 Crypto Crime Report</a></p>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta" id="download">
-        <div class="final-cta-content">
-            <h2>Não Seja Mais Uma Estatística</h2>
-            <p class="final-cta-stat">
-                <strong>$2.17 bilhões</strong> roubados em 6 meses<br>
-                Projeção: <strong>$4+ bilhões</strong> até dezembro<br>
-                <span class="final-cta-detail">Se você não está protegido, você é o próximo alvo</span>
-            </p>
-            
-            <button class="cta-button pulse" onclick="alert('Download será disponibilizado em breve!')">
-                INSTALAR CRYPTOGUARDIAN AGORA
-            </button>
-            
-            <div class="final-cta-features">
-                <div>✓ Grátis para sempre</div>
-                <div>✓ Instalação em 30 segundos</div>
-                <div>✓ Open Source (código auditável)</div>
-                <div>✓ Sem coleta de dados pessoais</div>
-            </div>
-            
-            <div class="final-cta-source">
-                <p>Dados atualizados em outubro/2025 | Fonte: <a href="https://www.chainalysis.com" target="_blank">Chainalysis</a></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
             <a href="#" onclick="alert('Documentação em breve!')">Documentação</a>
@@ -863,7 +969,6 @@
     </footer>
 
     <script>
-        // Theme Toggle
         function toggleTheme() {
             const html = document.documentElement;
             const currentTheme = html.getAttribute('data-theme');
@@ -876,15 +981,18 @@
             localStorage.setItem('theme', newTheme);
         }
 
-        // Load saved theme
         window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
             document.getElementById('theme-icon').textContent = savedTheme === 'light' ? '☀️' : '🌙';
         });
 
-        // Counter Animation
         function animateCounter(element, target, duration = 2000) {
+            if (target === 0) {
+                element.textContent = element.id === 'totalProtected' || element.id === 'saved24h' ? '$0' : '0';
+                return;
+            }
+            
             const start = 0;
             const increment = target / (duration / 16);
             let current = start;
@@ -904,18 +1012,41 @@
             }, 16);
         }
 
-        // Fetch stats from backend
         window.addEventListener('DOMContentLoaded', () => {
+            const totalProtectedEl = document.getElementById('totalProtected');
+            const honeypotsEl = document.getElementById('honeypots');
+            const saved24hEl = document.getElementById('saved24h');
+            const totalHoneypotsEl = document.getElementById('totalHoneypots');
+
             fetch("https://cryptoguardian-backend-dhho.onrender.com/api/stats/live")
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-                        animateCounter(document.getElementById('totalProtected'), data.allTime.totalSaved);
-                        animateCounter(document.getElementById('honeypots'), data.last24h.honeypotsBlocked);
-                        animateCounter(document.getElementById('saved24h'), data.last24h.totalSaved);
+                        const totalSaved = data.allTime.totalSaved || 0;
+                        const honeypotsToday = data.last24h.honeypotsBlocked || 0;
+                        const totalHoneypots = data.allTime.honeypotsBlocked || 0;
+                        const saved24h = data.last24h.totalSaved || 0;
+
+                        if (totalSaved > 0) {
+                            animateCounter(totalProtectedEl, totalSaved);
+                        }
+
+                        if (honeypotsToday > 0) {
+                            animateCounter(honeypotsEl, honeypotsToday);
+                        }
+
+                        if (saved24h > 0) {
+                            animateCounter(saved24hEl, saved24h);
+                        }
+
+                        if (totalHoneypots > 0) {
+                            totalHoneypotsEl.textContent = `${totalHoneypots.toLocaleString('en-US')} total`;
+                        }
                     }
                 })
-                .catch(err => console.log('Stats unavailable'));
+                .catch(err => {
+                    console.log('Stats will show real data when available');
+                });
         });
     </script>
 
